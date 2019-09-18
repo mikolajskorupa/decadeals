@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Price history of product {{ prod_id }}</title>
+        <!--[if lte IE 8]>
+            <script src="{% static 'js/excanvas.js' %}"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <canvas id="priceChart" width="500" height="300"></canvas>
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+        <script type="text/javascript">
+            $.get('{% url "price_history_json" prod_id %}', function(data) {
+                var ctx = $("#priceChart").get(0).getContext("2d");
+                new Chart(ctx, {
+                    type: 'line', 
+                    data: data, 
+                    options: {
+                      responsive: false,
+                      animation: false,
+                      }
+                });
+            });
+        </script>
+    </body>
+</html>

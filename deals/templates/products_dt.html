@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Decathlon {{ country }}</title>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+    var oTable = $('.datatable').dataTable({
+        "processing": true,
+        "serverSide": true,
+        "ajax": "{% url 'products_dt_json' %}?country={{ country }}"
+    });
+});</script>
+    </head>
+    <body>
+        <table class="datatable">
+        <thead>
+            <th>id</th>
+            <th>Product id</th>
+            <th>Name</th>
+            <th>Price original</th>
+            <th>Price discounted</th>
+            <th>Discount</th>
+            <th>URL</th>
+            <th>Country</th>
+            <th>Updated at</th>
+            <th>Price history</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    </body>
+</html>
