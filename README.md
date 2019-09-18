@@ -16,5 +16,5 @@ For the script to be able to fetch products from a specific website, a set of XP
 This project is not anyhow related with Decathlon, it is just an example of a Django app.
 
 Live demo: 
-http://ms93.ml:7000/products/PL/
-http://ms93.ml:7000/products/DE/
+* Decathlon.pl: http://ms93.ml:7000/products/PL/
+* Decathlon.de: http://ms93.ml:7000/products/DE/
